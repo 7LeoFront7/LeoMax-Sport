@@ -6,6 +6,7 @@ import { infoALLStages } from './dopInfo';
 const STATS_USER = ref([])
 const userStageText = ref(null)
 const isSTATS_USER = ref(true)
+const indexStage = ref(0)
 
 const MAX_PushUpsUser = ref(0)
 const MAX_PushDownsUser = ref(0)
@@ -22,8 +23,7 @@ function saveStartRes() {
 function resetApp(){
   isSTATS_USER.value = true
 
-  localStorage.setItem('infoPerson', '')
-  localStorage.setItem('isInfo', '')
+  localStorage.clear();
 
   getLSInfo()
 }
@@ -42,15 +42,26 @@ function getLSInfo() {
   }
 }
 
-function resYourStage(arr) {
+function resYourStage(userStats) {
+
+  let stageUser = 0
   dance:
   for (let i = 0; i < 13; i++) {
-    for (let j = 0; j < 3; j++) {
-      if (arr[j] <= infoALLStages[i][j]) {
-        userStageText.value = infoALLStages[i][4]
+    for (let j = 0; j < 4; j++) {
+      
+      if (userStats[j] == infoALLStages[i][j]) {
+        stageUser++
+      } 
+      if (stageUser == 4){
+        userStageText.value = infoALLStages[i + 1][4]
+        indexStage.value = i
         break dance
       }
-
+      if (userStats[j] < infoALLStages[i][j]) {
+        userStageText.value = infoALLStages[i][4]
+        indexStage.value = i - 1
+        break dance
+      }
     }
   }
 
@@ -119,8 +130,51 @@ onMounted(() =>{
       </div>
     </div>
   </div>
-  <div v-else>
-    <Header :resetApp="resetApp" :userStageText="userStageText"/>
+  <div class="p-4" v-else>
+    <Header class="mb-6" :resetApp="resetApp" :userStageText="userStageText"/>
+
+    <section class="flex flex-col gap-4">
+      <h1 class="stat-value">Цель:</h1>
+      <div class="stats stats-vertical lg:stats-horizontal shadow">
+  <div class="stat">
+    <div class="stat-title">Отжимания</div>
+    <div class="stat-value">{{ infoALLStages[indexStage + 1][0] }}</div>
+  </div>
+  <div class="stat">
+    <div class="stat-title">Подтягивания</div>
+    <div class="stat-value">{{ infoALLStages[indexStage + 1][1] }}</div>
+  </div>
+  <div class="stat">
+    <div class="stat-title">Пресс</div>
+    <div class="stat-value">{{ infoALLStages[indexStage + 1][2] }}</div>
+  </div>
+  <div class="stat">
+    <div class="stat-title">Приседания</div>
+    <div class="stat-value">{{ infoALLStages[indexStage + 1][3] }}</div>
+    
+  </div>
+</div>
+<h2 class="stat-value">Ваш максимум</h2>
+<div class="stats stats-vertical lg:stats-horizontal shadow">
+  <div class="stat">
+    <div class="stat-title">Отжимания</div>
+    <div :class="infoALLStages[indexStage + 1][0] <= STATS_USER[0] ? `stat-value text-green-500` : `stat-value text-indigo-500`">{{ STATS_USER[0] }}</div>
+  </div>
+  <div class="stat">
+    <div class="stat-title">Подтягивания</div>
+    <div :class="infoALLStages[indexStage + 1][1] <= STATS_USER[1] ? `stat-value text-green-500` : `stat-value text-indigo-500`">{{ STATS_USER[1] }}</div>
+  </div>
+  <div class="stat">
+    <div class="stat-title">Пресс</div>
+    <div :class="infoALLStages[indexStage + 1][2] <= STATS_USER[2] ? `stat-value text-green-500` : `stat-value text-indigo-500`">{{ STATS_USER[2] }}</div>
+  </div>
+  <div class="stat">
+    <div class="stat-title">Приседания</div>
+    <div :class="infoALLStages[indexStage + 1][3] <= STATS_USER[3] ? `stat-value text-green-500` : `stat-value text-indigo-500`">{{ STATS_USER[3] }}</div>
+  </div>
+</div>
+    </section>
+    
   </div>
 </template>
 
