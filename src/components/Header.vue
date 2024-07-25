@@ -5,8 +5,14 @@
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">LeoMax | Sport</span>
           <div class="flex items-center justify-between gap-4">
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
-          <span>{{ userStageText }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-12">
+  <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+</svg>  
+          <div class="flex flex-col">
+            <span class="text-gray-900">{{ firstName }} {{ lastName }}</span>
+            <span class="text-indigo-500">{{ userStageText }}</span>
+          </div>
+          
           </div>
           
         </a>
@@ -57,7 +63,7 @@
       </PopoverGroup>
       
       <div class="hidden lg:flex lg:flex-1 lg:justify-end flex items-center justify-between gap-4">
-        <button @click="resetApp" class="bg-indigo-600 text-sm p-2 rounded text-white">Перезапуск</button>
+        <button @click="resetApp" class="bg-indigo-600 text-sm p-2 rounded text-white">Записать</button>
         <a href="#" class="text-base font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
       </div>
     </nav>
@@ -92,7 +98,7 @@
               <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Профиль</a>
             </div>
             <div class="py-6">
-              <button @click="resetApp" class="bg-indigo-600 text-sm p-2 rounded text-white">Перезапуск</button>
+              <button @click="resetApp" class="bg-indigo-600 text-sm p-2 rounded text-white">Записать</button>
               <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
             </div>
           </div>
@@ -107,7 +113,9 @@ import { ref } from 'vue'
 
 defineProps({
   userStageText: String,
-  resetApp: Function
+  resetApp: Function,
+  lastName: String,
+  firstName: String
 })
 
 
@@ -130,7 +138,8 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon,
   XMarkIcon,
-  ChartBarIcon
+  ChartBarIcon,
+  UserIcon
 } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
 
