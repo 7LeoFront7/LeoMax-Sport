@@ -19,6 +19,15 @@ function saveStartRes() {
   getLSInfo()
 }
 
+function resetApp(){
+  isSTATS_USER.value = true
+
+  localStorage.setItem('infoPerson', '')
+  localStorage.setItem('isInfo', '')
+
+  getLSInfo()
+}
+
 function getLSInfo() {
 
   const dataStart = JSON.parse(localStorage.getItem('isInfo'))
@@ -111,7 +120,7 @@ onMounted(() =>{
     </div>
   </div>
   <div v-else>
-    <Header :userStageText="userStageText"/>
+    <Header :resetApp="resetApp" :userStageText="userStageText"/>
   </div>
 </template>
 
