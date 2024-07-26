@@ -10,27 +10,52 @@ const isName = ref(true)
 const fullName = ref([])
 const firstName = ref(null)
 const lastName = ref(null)
-const MAX_PushUpsUser = ref(null)
-const MAX_PushDownsUser = ref(null)
-const MAX_Press = ref(null)
-const MAX_Prised = ref(null)
+const MAX_PushUpsUser = ref(0)
+const MAX_PushDownsUser = ref(0)
+const MAX_Press = ref(0)
+const MAX_Prised = ref(0)
+
+const arrProgress = ref([])
 
 const isSTATS_USER = ref(true)
 
 function saveStartRes() {
   isSTATS_USER.value = false
 
+  
+
   if (isName.value){
     isName.value = false
     localStorage.setItem('namesuser', JSON.stringify([firstName,lastName]))
-  localStorage.setItem('isName', false)
+    localStorage.setItem('isName', false)
   }
 
   
   localStorage.setItem('infoPerson', JSON.stringify([MAX_PushUpsUser, MAX_PushDownsUser, MAX_Press, MAX_Prised]))
   localStorage.setItem('isInfo', false)
   getLSInfo()
+
+  
+  const progressRow = {
+    date: `${new Date().toDateString()}`,
+    stats: `Отж: ${MAX_PushUpsUser.value} / Под: ${MAX_PushDownsUser.value} / Пресс: ${MAX_Press.value} / Присед: ${MAX_Prised.value}`,
+    rang: userStageText.value
+  }
+
+  
+  const progress = JSON.parse(localStorage.getItem('Progress'))
+  
+  if (progress){
+    arrProgress.value = [...progress]
+  }
+
+  
+  arrProgress.value.push(progressRow)
+  localStorage.setItem('Progress', JSON.stringify(arrProgress.value))
+
+
 }
+
 
 function resetApp(){
   isSTATS_USER.value = true
@@ -64,6 +89,9 @@ function getLSInfo() {
     dataPerson.map((item, index) => {
       STATS_USER.value[index] = item._value
     })
+
+    
+
     resYourStage(STATS_USER.value)
   }
 }
@@ -85,7 +113,7 @@ function resYourStage(userStats) {
         if (userStats[j] < infoALLStages[i][j]){
         userStageText.value = 'Новичок'
         indexStage.value = i
-        console.log(1)
+        
         break dance
         
       }
@@ -96,7 +124,7 @@ function resYourStage(userStats) {
         if (stageUser == 4){ // Если все равны 
         userStageText.value = infoALLStages[i][4]
         indexStage.value = i + 1
-        console.log(2)
+        
         break dance
       }
         continue
@@ -105,12 +133,14 @@ function resYourStage(userStats) {
       if (userStats[j] < infoALLStages[i][j]) {
         userStageText.value = infoALLStages[i - 1][4]
         indexStage.value = i 
-        console.log(4)
+        
         break dance
       }
   
       } 
     }
+
+    
   }
 
 
@@ -120,6 +150,8 @@ onMounted(() =>{
 
 provide('datesUser_STATS_USER', STATS_USER)
 provide('datesUser_indexStage', indexStage)
+provide('fullName', fullName)
+provide('arrProgress', arrProgress)
 
 </script>
 

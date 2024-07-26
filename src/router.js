@@ -8,7 +8,7 @@ export default createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/progress', component: Progress },
-        { path: '/main', component: main },
+        { path: '/main', component: main, alias: '/' },
         { path: '/profile', component: profile },
         { path: '/howwork', component: howwork }
       ]

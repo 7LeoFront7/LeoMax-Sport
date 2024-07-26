@@ -25,7 +25,7 @@
       </div>
       <PopoverGroup class="hidden lg:flex lg:gap-x-12">
         <router-link to="/main" class="text-base font-semibold leading-6 text-gray-900">Главная</router-link>
-        <Popover class="relative">
+        <!-- <Popover class="relative">
           <PopoverButton class="flex items-center gap-x-1 text-base font-semibold leading-6 text-gray-400">
             Тренировка
             <ChevronDownIcon class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
@@ -55,15 +55,15 @@
               </div>
             </PopoverPanel>
           </transition>
-        </Popover>
+        </Popover> -->
         
-        <router-link to="/progress" class="text-base font-semibold leading-6 text-gray-900"></router-link>
+        <router-link to="/progress" class="text-base font-semibold leading-6 text-gray-900">Прогресс</router-link>
         <router-link to="/profile"  class="text-base font-semibold leading-6 text-gray-900">Профиль</router-link>
         <router-link to="/howwork" class="text-base font-semibold leading-6 text-indigo-500">Как это работает?</router-link>
       </PopoverGroup>
       
       <div class="hidden lg:flex lg:flex-1 lg:justify-end flex items-center justify-between gap-4">
-        <button @click="resetApp" class="bg-indigo-600 text-sm p-2 rounded text-white">Записать</button>
+        <button @click="resetApp" class="bg-indigo-600 text-sm p-2 rounded text-white">Обновить максимум +</button>
         
       </div>
     </nav>
@@ -110,6 +110,7 @@
 <script setup>
 import { inject, ref } from 'vue'
 
+const allDataProgress = ref({})
 
 defineProps({
   userStageText: String,
