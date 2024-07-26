@@ -66,36 +66,53 @@ function getLSInfo() {
     })
     resYourStage(STATS_USER.value)
   }
-  provide('fullName', fullName)
 }
 
 function resYourStage(userStats) {
 
   let stageUser = 0
+  let stageUserUp = 0
+
+  if (userStats[0] > 100 & userStats[1] > 31 & userStats[2] > 37 & userStats[3] > 100 ){
+    userStageText.value = "Высшая элита"
+  }
+
   dance:
   for (let i = 0; i < 13; i++) {
     for (let j = 0; j < 4; j++) {
-      
-      if (userStats[j] == infoALLStages[i][j]) {
-        stageUser++
-      } 
-      if (stageUser == 4){
-        userStageText.value = infoALLStages[i + 1][4]
+
+      if (i == 0){
+        if (userStats[j] < infoALLStages[i][j]){
+        userStageText.value = 'Новичок'
         indexStage.value = i
+        console.log(1)
         break dance
+        
       }
-      if (userStats[j] < infoALLStages[i][j]) {
+      }
+      
+      if (userStats[j] == infoALLStages[i][j]){
+        ++stageUser
+        if (stageUser == 4){ // Если все равны 
         userStageText.value = infoALLStages[i][4]
-        indexStage.value = i - 1
+        indexStage.value = i + 1
+        console.log(2)
         break dance
       }
+        continue
+      }
+
+      if (userStats[j] < infoALLStages[i][j]) {
+        userStageText.value = infoALLStages[i - 1][4]
+        indexStage.value = i 
+        console.log(4)
+        break dance
+      }
+  
+      } 
     }
   }
 
-  if (userStageText.value == null ){
-    userStageText.value = infoALLStages[12][4]
-  }
-}
 
 onMounted(() =>{
   getLSInfo()
