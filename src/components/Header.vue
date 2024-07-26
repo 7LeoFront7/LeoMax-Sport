@@ -1,6 +1,6 @@
 <template>
-  <header class="bg-white shadow-lg text-lg">
-    <nav class="mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+  <header class="bg-white shadow-lg sticky text-lg top-0 w-full p-6">
+    <nav class="mx-auto flex items-center justify-between lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">LeoMax | Sport</span>
@@ -24,8 +24,9 @@
         </button>
       </div>
       <PopoverGroup class="hidden lg:flex lg:gap-x-12">
+        <router-link to="/main" class="text-base font-semibold leading-6 text-gray-900">Главная</router-link>
         <Popover class="relative">
-          <PopoverButton class="flex items-center gap-x-1 text-base font-semibold leading-6 text-gray-900">
+          <PopoverButton class="flex items-center gap-x-1 text-base font-semibold leading-6 text-gray-400">
             Тренировка
             <ChevronDownIcon class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
           </PopoverButton>
@@ -55,16 +56,15 @@
             </PopoverPanel>
           </transition>
         </Popover>
-
-        <a href="#" class="text-base font-semibold leading-6 text-gray-900">Прогресс</a>
-        <a href="#" class="text-base font-semibold leading-6 text-gray-900">Питание</a>
-        <a href="#" class="text-base font-semibold leading-6 text-gray-900">Друзья</a>
-        <a href="#" class="text-base font-semibold leading-6 text-gray-900">Профиль</a>
+        
+        <router-link to="/progress" class="text-base font-semibold leading-6 text-gray-900"></router-link>
+        <router-link to="/profile"  class="text-base font-semibold leading-6 text-gray-900">Профиль</router-link>
+        <router-link to="/howwork" class="text-base font-semibold leading-6 text-indigo-500">Как это работает?</router-link>
       </PopoverGroup>
       
       <div class="hidden lg:flex lg:flex-1 lg:justify-end flex items-center justify-between gap-4">
         <button @click="resetApp" class="bg-indigo-600 text-sm p-2 rounded text-white">Записать</button>
-        <a href="#" class="text-base font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+        
       </div>
     </nav>
     <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -83,8 +83,9 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
+              <router-link to="/main" @click="mobileMenuOpen = false" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Главная</router-link>
               <Disclosure as="div" class="-mx-3" v-slot="{ open }">
-                <DisclosureButton class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                <DisclosureButton class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-400 hover:bg-gray-50">
                   Тренировки
                   <ChevronDownIcon :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']" aria-hidden="true" />
                 </DisclosureButton>
@@ -92,14 +93,12 @@
                   <DisclosureButton v-for="item in [...products]" :key="item.name" as="a" :href="item.href" class="block rounded-lg py-2 pl-6 pr-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ item.name }}</DisclosureButton>
                 </DisclosurePanel>
               </Disclosure>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Прогресс</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Питание</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Друзья</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Профиль</a>
+              <router-link to="/progress" @click="mobileMenuOpen = false" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Прогресс</router-link>
+        <router-link to="/profile" @click="mobileMenuOpen = false" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Профиль</router-link>
+        <router-link to="/howwork" @click="mobileMenuOpen = false" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-indigo-500 hover:bg-indigo-50">Как это работает?</router-link>
             </div>
             <div class="py-6">
               <button @click="resetApp" class="bg-indigo-600 text-sm p-2 rounded text-white">Записать</button>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
             </div>
           </div>
         </div>
@@ -109,7 +108,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
+
 
 defineProps({
   userStageText: String,
