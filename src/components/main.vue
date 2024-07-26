@@ -12,7 +12,7 @@ const indexStage = inject('datesUser_indexStage')
   <section class=" flex flex-row-reverse flex-1 sm:flex-col gap-4">
     <div class="flex flex-1 flex-col">
       <div class="mb-4">
-        <h1 class="text-2xl text-gray-900 sm:stat-value">Цель: <span class="text-indigo-500">{{ infoALLStages[indexStage +
+        <h1 class="text-2xl text-gray-900 sm:stat-value"><span class="text-indigo-500">{{ infoALLStages[indexStage +
       2][4] }}</span></h1>
       </div>
       <div class="stats bg-white stats-vertical lg:stats-horizontal shadow">
