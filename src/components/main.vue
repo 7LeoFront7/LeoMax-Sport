@@ -5,8 +5,7 @@ import { infoALLStages } from '../dopInfo';
 const STATS_USER = inject('datesUser_STATS_USER')
 const indexStage = inject('datesUser_indexStage')
 
-import { hideAddressBar } from '../dopInfo';
-hideAddressBar()
+
 </script>
 
 <template>

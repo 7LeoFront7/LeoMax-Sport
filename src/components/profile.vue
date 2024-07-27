@@ -9,6 +9,5 @@
 <script setup>
 import { inject } from 'vue';
 const name = inject('fullName')
-import { hideAddressBar } from '../dopInfo';
-hideAddressBar()
+
 </script>

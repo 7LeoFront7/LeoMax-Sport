@@ -4,7 +4,6 @@ import Header from './components/Header.vue';
 import { infoALLStages } from './dopInfo';
 import NavBottom from './components/NavBottom.vue';
 
-window.scrollTo(0, 1);
 
 const STATS_USER = ref([])
 const userStageText = ref(null)

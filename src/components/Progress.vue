@@ -1,7 +1,6 @@
 <script setup>
 import { inject, onMounted } from 'vue';
-import { hideAddressBar } from '../dopInfo';
-hideAddressBar()
+
 const name = inject('fullName')
 const arrProgress = inject('arrProgress')
 
