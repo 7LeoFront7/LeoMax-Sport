@@ -9,5 +9,6 @@
 <script setup>
 import { inject } from 'vue';
 const name = inject('fullName')
-window.scrollTo(0, 1);
+import { hideAddressBar } from '../dopInfo';
+hideAddressBar()
 </script>

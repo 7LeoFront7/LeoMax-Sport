@@ -9,5 +9,6 @@
 </template>
 
 <script setup>
-window.scrollTo(0, 1);
+import { hideAddressBar } from '../dopInfo';
+hideAddressBar()
 </script>

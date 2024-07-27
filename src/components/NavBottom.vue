@@ -1,5 +1,6 @@
 <script setup>
-
+import { hideAddressBar } from '../dopInfo';
+hideAddressBar()
 </script>
 
 <template>

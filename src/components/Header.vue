@@ -110,6 +110,9 @@
 <script setup>
 import { inject, ref } from 'vue'
 
+import { hideAddressBar } from '../dopInfo';
+hideAddressBar()
+
 const allDataProgress = ref({})
 
 defineProps({
