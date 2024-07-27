@@ -3,6 +3,7 @@ import Progress from './components/Progress.vue'
 import profile from './components/profile.vue'
 import main from './components/main.vue'
 import howwork from './components/howwork.vue'
+import today from './components/today.vue'
 
 export default createRouter({
     history: createWebHistory(),
@@ -10,6 +11,7 @@ export default createRouter({
         { path: '/progress', component: Progress },
         { path: '/main', component: main, alias: '/' },
         { path: '/profile', component: profile },
-        { path: '/howwork', component: howwork }
+        { path: '/howwork', component: howwork },
+        { path: '/today', component: today }
       ]
 })

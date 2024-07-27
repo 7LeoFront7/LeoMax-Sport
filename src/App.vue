@@ -2,6 +2,7 @@
 import { onMounted, provide, ref } from 'vue'
 import Header from './components/Header.vue';
 import { infoALLStages } from './dopInfo';
+import NavBottom from './components/NavBottom.vue';
 
 const STATS_USER = ref([])
 const userStageText = ref(null)
@@ -162,7 +163,7 @@ provide('arrProgress', arrProgress)
   <div class="bg-white">
     <div v-if="isSTATS_USER" class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <h2 class=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Введите ваш резльтат
+      <h2 class=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Введите ваш результат
       </h2>
     </div>
 
@@ -234,7 +235,9 @@ provide('arrProgress', arrProgress)
   <div class="p-4" v-else>
     <Header :firstName="fullName[0]" :lastName="fullName[1]" class="mb-6" :resetApp="resetApp" :userStageText="userStageText"/>
     <router-view></router-view>
-  
+    <NavBottom class="shadow-lg"/>
+
+    
     
   </div>
   </div>
