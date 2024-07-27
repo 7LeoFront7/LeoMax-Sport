@@ -165,6 +165,7 @@ function resYourStage(userStats) {
 
 onMounted(() =>{
   getLSInfo()
+  localStorage.setItem('toDoEveryDayList', JSON.stringify(toDoEveryDayList.value))
 })
 
 provide('datesUser_STATS_USER', STATS_USER)
