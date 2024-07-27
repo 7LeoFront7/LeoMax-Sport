@@ -11,6 +11,8 @@ onMounted(()=>{
     arrProgress.value = [...progress]
   }
 })
+
+
 </script>
 
 <template>
@@ -20,8 +22,7 @@ onMounted(()=>{
     <!-- head -->
     <thead>
       <tr>
-        <th></th>
-        <th>Пользователь</th>
+        <th>Дата</th>
         <th>Данные о результатах</th>
         <th>Повышение</th>
       </tr>
@@ -29,10 +30,24 @@ onMounted(()=>{
     <tbody>
       <!-- row 1 -->
       <tr class="hover" v-for='item in arrProgress'>
-        <th>{{item.date}}</th>
-        <td>{{ name[0] }} {{ name[1] }}</td>
-        <td>{{item.stats}}</td>
-        <td>{{item.rang}}</td>
+        <th>{{item.date.slice(3)}}</th>
+        <td>
+          <div class="flex flex-col">
+            <div>
+              Отжимания: {{ item.PushUpsUser }}
+            </div>
+            <div>
+              Подтягивания: {{ item.PushDownsUser }}
+            </div>
+            <div>
+              Пресс: {{ item.Press }}
+            </div>
+            <div>
+              Приседания: {{ item.Prised }}
+            </div>
+        </div>
+      </td>
+        <td class="text-indigo-500">{{item.rang}}</td>
       </tr>
     </tbody>
   </table>

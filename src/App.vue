@@ -38,7 +38,10 @@ function saveStartRes() {
   
   const progressRow = {
     date: `${new Date().toDateString()}`,
-    stats: `Отж: ${MAX_PushUpsUser.value} / Под: ${MAX_PushDownsUser.value} / Пресс: ${MAX_Press.value} / Присед: ${MAX_Prised.value}`,
+    PushUpsUser: MAX_PushUpsUser.value,
+    PushDownsUser: MAX_PushDownsUser.value,
+    Press: MAX_Press.value ,
+    Prised: MAX_Prised.value,
     rang: userStageText.value
   }
 

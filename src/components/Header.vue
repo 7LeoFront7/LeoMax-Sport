@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white shadow-lg sticky text-lg top-0 w-full p-6">
+  <header class="bg-white shadow-lg z-10 sticky text-lg top-0 w-full p-6">
     <nav class="mx-auto flex items-center justify-between lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
@@ -9,8 +9,8 @@
   <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
 </svg>  
           <div class="flex flex-col">
-            <span class="text-gray-900">{{ firstName }} {{ lastName }}</span>
-            <span class="text-indigo-500">{{ userStageText }}</span>
+            <span class="text-gray-900 ">{{ firstName }} {{ lastName }}</span>
+            <span class="text-indigo-500 font-semibold">{{ userStageText }}</span>
           </div>
           
           </div>
@@ -20,7 +20,7 @@
       <div class="flex lg:hidden">
         <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = true">
           <span class="sr-only">Open main menu</span>
-          <Bars3Icon class="h-6 w-6" aria-hidden="true" />
+          <Bars3Icon class="h-10 w-10" aria-hidden="true" />
         </button>
       </div>
       <PopoverGroup class="hidden lg:flex lg:gap-x-12">
@@ -67,13 +67,13 @@
         
       </div>
     </nav>
-    <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
+    <Dialog class="lg:hidden transition" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
       <div class="fixed inset-0 z-10" />
       <DialogPanel class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
         <div class="flex items-center justify-between">
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">LeoMax | Sport</span>
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            <span class="text-3xl font-bold"><span class="text-indigo-500">LeoMax</span> | Sport</span>
           </a>
           <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
             <span class="sr-only">Закрыть</span>
@@ -83,9 +83,9 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <router-link to="/main" @click="mobileMenuOpen = false" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Главная</router-link>
+              <router-link to="/main" @click="mobileMenuOpen = false" class="-mx-3 block rounded-lg px-3 py-2 text-xl border font-semibold leading-7 text-gray-900 hover:bg-gray-50">Главная</router-link>
               <Disclosure as="div" class="-mx-3" v-slot="{ open }">
-                <DisclosureButton class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-400 hover:bg-gray-50">
+                <DisclosureButton class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-xl border font-semibold leading-7 text-gray-400 hover:bg-gray-50">
                   Тренировки
                   <ChevronDownIcon :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']" aria-hidden="true" />
                 </DisclosureButton>
@@ -93,12 +93,12 @@
                   <DisclosureButton v-for="item in [...products]" :key="item.name" as="a" :href="item.href" class="block rounded-lg py-2 pl-6 pr-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ item.name }}</DisclosureButton>
                 </DisclosurePanel>
               </Disclosure>
-              <router-link to="/progress" @click="mobileMenuOpen = false" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Прогресс</router-link>
-        <router-link to="/profile" @click="mobileMenuOpen = false" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Профиль</router-link>
-        <router-link to="/howwork" @click="mobileMenuOpen = false" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-indigo-500 hover:bg-indigo-50">Как это работает?</router-link>
+              <router-link to="/progress" @click="mobileMenuOpen = false" class="-mx-3 border block rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-gray-900 hover:bg-gray-50">Прогресс</router-link>
+        <router-link to="/profile" @click="mobileMenuOpen = false" class="-mx-3 block border rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-gray-900 hover:bg-gray-50">Профиль</router-link>
+        <router-link to="/howwork" @click="mobileMenuOpen = false" class="-mx-3 block border rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-indigo-500 hover:bg-indigo-50">Как это работает?</router-link>
             </div>
             <div class="py-6">
-              <button @click="resetApp" class="bg-indigo-600 text-sm p-2 rounded text-white">Записать</button>
+              <button @click="resetApp" class="bg-indigo-600 text-base p-2 px-6 rounded text-white">Обновить Максимум +</button>
             </div>
           </div>
         </div>
