@@ -3,7 +3,7 @@
 </script>
 
 <template>
- <div class="btm-nav bg-white z-10">
+ <div class="btm-nav bg-white z-10 pb-10">
   <router-link
   to="/main"
   custom
