@@ -1,15 +1,17 @@
 <script setup>
+import { inject } from 'vue';
 
+const countFalseToDay = inject('countFalseToDay')
 </script>
 
 <template>
- <div class="btm-nav bg-white z-10 pb-10">
+ <div class="btm-nav bg-white z-10 pb-10 mt-10">
   <router-link
   to="/main"
   custom
   v-slot="{ href, route, navigate, isActive, isExactActive }"
 >
-  <NavLink :active="isActive" :href="href" @click="navigate">
+  <a :active="isActive" :href="href" @click="navigate">
     <button class="flex flex-col items-center justify-center" :class="[isActive && 'router-link-active flex flex-col items-center justify-center', isExactActive && 'router-link-exact-active flex flex-col items-center justify-center']">
       <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +28,7 @@
     <span class="btm-nav-label">Главаня</span>
     </button>
   
-  </NavLink>
+  </a>
 </router-link>
 
 <router-link
@@ -34,7 +36,7 @@
   custom
   v-slot="{ href, route, navigate, isActive, isExactActive }"
 >
-  <NavLink :active="isActive" :href="href" @click="navigate">
+  <a :active="isActive" :href="href" @click="navigate">
     <button class="flex flex-col items-center justify-center" :class="[isActive && 'router-link-active flex flex-col items-center justify-center', isExactActive && 'router-link-exact-active flex flex-col items-center justify-center']">
       <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +53,7 @@
     <span class="btm-nav-label">Прогресс</span>
     </button>
     
-  </NavLink>
+  </a>
 </router-link>
 
 <router-link
@@ -59,7 +61,7 @@
   custom
   v-slot="{ href, route, navigate, isActive, isExactActive }"
 >
-  <NavLink :active="isActive" :href="href" @click="navigate">
+  <a :active="isActive" :href="href" @click="navigate">
     <button class="flex flex-col items-center justify-center" :class="[isActive && 'router-link-active flex flex-col items-center justify-center', isExactActive && 'router-link-exact-active flex flex-col items-center justify-center']">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -73,10 +75,10 @@
         stroke-width="2"
         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
-    <span class="btm-nav-label">Сегодня</span>
+    <span class="btm-nav-label relative">Сегодня<span :class="countFalseToDay != 0 ? `warnToDay` : 'hiddenBlock' ">{{ countFalseToDay }}</span></span>
   </button>
     
-  </NavLink>
+  </a>
 </router-link>
 
 </div>
@@ -88,6 +90,21 @@
   }
   .router-link-active{
     color: #6366f1
+  }
+  .warnToDay{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    border-radius: 50%;
+    background-color: rgb(237, 38, 38);
+    color: #fff;
+    font-size: 12px;
+    top: -28px;
+    right: 7px;
+  }
+  .hiddenBlock{
+    display: none;
   }
 </style>
 

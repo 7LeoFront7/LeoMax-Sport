@@ -9,7 +9,7 @@ const indexStage = inject('datesUser_indexStage')
 </script>
 
 <template>
-  <section class=" flex flex-row-reverse flex-1 sm:flex-col gap-4">
+  <section class=" flex flex-row-reverse flex-1 sm:flex-col gap-4 mb-10">
     <div class="flex flex-1 flex-col">
       <div class="mb-4">
         <h1 class="text-2xl text-gray-900 sm:stat-value"><span class="text-indigo-500">{{ infoALLStages[indexStage][4] }}</span></h1>

@@ -4,6 +4,20 @@ import Header from './components/Header.vue';
 import { infoALLStages } from './dopInfo';
 import NavBottom from './components/NavBottom.vue';
 
+const toDoEveryDayList =  ref({
+  1: ['Почистить зубы (Утро)', false],
+  2: ['Зарядка', false],
+  3: ['Вакуум 15х', false],
+  4: ['10 страниц', false],
+  5: ['Тренировка', false],
+  6: ['Почистить зубы (Вечер)', false],
+})
+
+provide('toDoEveryDayList',toDoEveryDayList)
+
+const countFalseToDay = ref(0)
+
+provide('countFalseToDay', countFalseToDay)
 
 const STATS_USER = ref([])
 const userStageText = ref(null)
@@ -236,7 +250,7 @@ provide('arrProgress', arrProgress)
   <div class="p-4" v-else>
     <Header :firstName="fullName[0]" :lastName="fullName[1]" class="mb-6" :resetApp="resetApp" :userStageText="userStageText"/>
     <router-view></router-view>
-    <NavBottom class="shadow-lg"/>
+    <NavBottom/>
 
     
     

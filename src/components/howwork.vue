@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-indigo-500 stat-value">Как это работает?</h1>
+  <h1 class="text-indigo-500 text-2xl font-semibold">Как это работает?</h1>
   <br>
   <div class="text-xl">
     <p>Каждый понедельник Вы будете замерять свои результаты. История прогресса будет сохраняться во вкладке "Прогресс"</p>

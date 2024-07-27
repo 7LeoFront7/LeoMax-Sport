@@ -16,7 +16,7 @@ onMounted(()=>{
 </script>
 
 <template>
-  <h1 class="text-indigo-500 stat-value mb-4">Ваш прогресс</h1>
+  <h1 class="text-indigo-500 text-2xl font-semibold mb-4">Ваш прогресс</h1>
   <div class="overflow-x-auto">
   <table class="table">
     <!-- head -->

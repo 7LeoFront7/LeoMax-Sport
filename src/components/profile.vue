@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-indigo-500 stat-value">Ваш профиль</h1>
+  <h1 class="text-indigo-500 text-2xl font-semibold">Ваш профиль</h1>
   <br>
   <h1>Имя: {{ name[0] }}</h1>
   <h1>Фамилия: {{ name[1] }}</h1>
