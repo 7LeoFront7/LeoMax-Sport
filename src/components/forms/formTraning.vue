@@ -24,7 +24,7 @@ font-semibold">Какая у Вас
           </div>
           <div class="stat">
             <div @click="() => mainForm = 'На Max'" :class="mainForm == 'На Max' ? 'text-indigo-500' : null"
-              class="stat-title">На Max</div>
+              class="stat-title">Max</div>
 
           </div>
         </div>
@@ -81,10 +81,21 @@ font-semibold">Какая у Вас
           </div>
 
           <div class="mt-6">
-            <button @click=""
+            <button @click="saveStartRes()" onclick="my_modal_3.showModal()"
               class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
               Записать результат</button>
           </div>
+          <dialog id="my_modal_3" class="modal">
+            <div class="modal-box">
+              <form method="dialog">
+                <h1>Сохранено</h1>
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+              </form>
+
+
+
+            </div>
+          </dialog>
         </div>
 
       </div>
@@ -99,4 +110,5 @@ import Power from './Power.vue'
 import relax from './relax.vue'
 const mainForm = inject('mainForm')
 const { MAX_PushUpsUser, MAX_PushDownsUser, MAX_Press, MAX_Prised } = inject('MaxPull')
+const saveStartRes = inject('saveStartRes')
 </script>

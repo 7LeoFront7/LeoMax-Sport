@@ -90,18 +90,7 @@
             <div class="space-y-2 py-6">
               <router-link to="/main" @click="mobileMenuOpen = false"
                 class="-mx-3 block rounded-lg px-3 py-2 text-xl border font-semibold leading-7 text-gray-900 hover:bg-gray-50">Главная</router-link>
-              <Disclosure as="div" class="-mx-3" v-slot="{ open }">
-                <DisclosureButton
-                  class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-xl border font-semibold leading-7 text-gray-400 hover:bg-gray-50">
-                  Тренировки
-                  <ChevronDownIcon :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']" aria-hidden="true" />
-                </DisclosureButton>
-                <DisclosurePanel class="mt-2 space-y-2">
-                  <DisclosureButton v-for="item in [...products]" :key="item.name" as="a" :href="item.href"
-                    class="block rounded-lg py-2 pl-6 pr-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                    {{ item.name }}</DisclosureButton>
-                </DisclosurePanel>
-              </Disclosure>
+
               <router-link to="/progress" @click="mobileMenuOpen = false"
                 class="-mx-3 border block rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-gray-900 hover:bg-gray-50">Прогресс</router-link>
               <router-link to="/profile" @click="mobileMenuOpen = false"
@@ -109,10 +98,6 @@
               <router-link to="/howwork" @click="mobileMenuOpen = false"
                 class="-mx-3 block border rounded-lg px-3 py-2 text-xl font-semibold leading-7 text-indigo-500 hover:bg-indigo-50">Как
                 это работает?</router-link>
-            </div>
-            <div class="py-6">
-              <button @click="resetApp" class="bg-indigo-600 text-base p-2 px-6 rounded text-white">Провести
-                тренировку</button>
             </div>
           </div>
         </div>
@@ -135,12 +120,8 @@ defineProps({
 import {
   Dialog,
   DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
   PopoverGroup
 } from '@headlessui/vue'
-import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 import {
   ChartBarIcon,
   XMarkIcon

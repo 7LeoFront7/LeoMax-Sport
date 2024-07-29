@@ -13,13 +13,13 @@
 </template>
 
 <script setup>
-import { inject, onMounted, ref } from 'vue'
+import { inject } from 'vue'
 
 const toDoEveryDayList = inject('toDoEveryDayList')
 const countFalseToDay = inject('countFalseToDay')
 
-const toDoEveryDayList_data = ref('')
 
+const toDoEveryDayList_data = inject('toDoEveryDayList_data')
 
 function hello() {
   setTimeout(() => {
@@ -34,19 +34,10 @@ function hello() {
 
 }
 
-function getData() {
-  toDoEveryDayList_data.value = JSON.parse(localStorage.getItem('toDoEveryDayList'))
-}
 
 
-onMounted(() => {
-  getData()
-  toDoEveryDayList.value = toDoEveryDayList_data.value
-  countFalseToDay.value = 0
-  for (let i = 1; i < 7; i++) {
-    if (!toDoEveryDayList.value[i][1]) {
-      countFalseToDay.value++
-    }
-  }
-})
+
+
+
+
 </script>

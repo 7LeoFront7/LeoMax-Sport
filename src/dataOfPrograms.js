@@ -2,6 +2,8 @@ export const dataOfPowerPrograms = []
 
 const power1 = {
 	name: 'Понедельник (Грудь + Руки)',
+	id: 1,
+	class: 'power',
 	descrip: 'Программа на развития силы верхней части тела',
 	time: 30,
 	exemple: [{
@@ -37,6 +39,8 @@ const power1 = {
 }
 
 const power2 = {
+	id: 2,
+	class: 'power',
 	name: 'Среда (Спина + Пресс)',
 	descrip: 'Программа на развития силы верхней и средней части тела',
 	time: 32,
@@ -78,6 +82,8 @@ const power2 = {
 }
 
 const power3 = {
+	id: 3,
+	class: 'power',
 	name: 'Пятница (Ноги)',
 	descrip: 'Программа на развития силы нижний части тела',
 	time: 28,
