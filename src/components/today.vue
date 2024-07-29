@@ -5,42 +5,48 @@
       {{ item[0] }}
     </div>
     <div class="form-control">
-  <label class="label cursor-pointer">
-    <input v-model="item[1]" :checked="item[1]" @click="hello" type="checkbox" class="checkbox checkbox-primary" />
-  </label>
-</div>
+      <label class="label cursor-pointer">
+        <input v-model="item[1]" :checked="item[1]" @click="hello" type="checkbox" class="checkbox checkbox-primary" />
+      </label>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, provide, inject } from 'vue';
+import { inject, onMounted, ref } from 'vue'
 
 const toDoEveryDayList = inject('toDoEveryDayList')
 const countFalseToDay = inject('countFalseToDay')
 
+const toDoEveryDayList_data = ref('')
 
-function hello(){
-  setTimeout(()=>{
+
+function hello() {
+  setTimeout(() => {
     localStorage.setItem('toDoEveryDayList', JSON.stringify(toDoEveryDayList.value))
     countFalseToDay.value = 0
-  for (let i = 1; i < 7; i++){
-  if (!toDoEveryDayList.value[i][1]){
-    countFalseToDay.value = countFalseToDay.value + 1
-  }
+    for (let i = 1; i < 7; i++) {
+      if (!toDoEveryDayList.value[i][1]) {
+        countFalseToDay.value = countFalseToDay.value + 1
+      }
+    }
+  }, 0)
+
 }
-  },0)
-  
+
+function getData() {
+  toDoEveryDayList_data.value = JSON.parse(localStorage.getItem('toDoEveryDayList'))
 }
 
 
-onMounted(()=>{
-  const toDoEveryDayList_data = JSON.parse(localStorage.getItem('toDoEveryDayList'))
-  toDoEveryDayList.value = toDoEveryDayList_data
+onMounted(() => {
+  getData()
+  toDoEveryDayList.value = toDoEveryDayList_data.value
   countFalseToDay.value = 0
-  for (let i = 1; i < 7; i++){
-  if (!toDoEveryDayList.value[i][1]){
-    countFalseToDay.value++
+  for (let i = 1; i < 7; i++) {
+    if (!toDoEveryDayList.value[i][1]) {
+      countFalseToDay.value++
+    }
   }
-}
 })
 </script>
