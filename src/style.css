@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
     background-color: #fff;
     height: 100% !important;
+}
+
+input:focus {
+    outline: none;
 }

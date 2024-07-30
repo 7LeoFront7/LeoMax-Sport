@@ -1,114 +1,95 @@
 export const dataOfCardioPrograms = []
 
 const cardio1 = {
-	name: 'Кардио "Легкое"',
+	name: 'Кардио "Легкий"',
+	id: 1,
+	done: false,
+	dayOfWeek: 2,
+	class: 'cardio',
+	descrip: 'Программа на развития выносливости',
 	time: 30,
-	descrip: 'Программа на развития силы и выносливости',
-	complexity: 'Кардио',
 	exemple: [{
-		nameExp: 'Бег на месте',
-		podhods: 3,
-		repeatsExp: 60
-	},
-	{
-		nameExp: 'Берпи',
+		nameExp: 'Бег',
 		podhods: 3,
 		repeatsExp: 12
 	},
 	{
-		nameExp: 'Шаги альпениста',
+		nameExp: 'Прыжки',
 		podhods: 3,
-		repeatsExp: 60
+		repeatsExp: 12
 	},
 	{
-		nameExp: 'Велосипед',
+		nameExp: 'Отжимания V',
 		podhods: 3,
-		repeatsExp: 60
+		repeatsExp: 12
+	},
+	{
+		nameExp: 'Гантели на бицепц (6кг)',
+		podhods: 3,
+		repeatsExp: 12
+	},
+	{
+		nameExp: 'Молотки (6кг)',
+		podhods: 3,
+		repeatsExp: 12
+	},
+	{
+		nameExp: 'Гантели к груди (6кг)',
+		podhods: 3,
+		repeatsExp: 12
 	}]
 }
 
 const cardio2 = {
-	name: 'Кардио "Среднее"',
-	descrip: 'Программа на развития силы и выносливости',
+	done: false,
+	id: 2,
+	dayOfWeek: 4,
+	class: 'cardio',
+	name: 'Среда (Спина + Пресс)',
+	descrip: 'Программа на развития силы верхней и средней части тела',
 	time: 32,
-	complexity: 'Кардио',
 	exemple: [{
-		nameExp: 'Бег на месте',
-		podhods: 3,
-		repeatsExp: 60
-	},
-	{
-		nameExp: 'Берпи',
+		nameExp: 'Подтягивания обыч.',
 		podhods: 3,
 		repeatsExp: 12
 	},
 	{
-		nameExp: 'Шаги альпениста',
+		nameExp: 'Подтягивания на бицепс',
 		podhods: 3,
-		repeatsExp: 60
+		repeatsExp: 12
+	},
+	{
+		nameExp: 'Подтягивания широкие',
+		podhods: 3,
+		repeatsExp: 12
+	},
+	{
+		nameExp: 'Подтягивания узким',
+		podhods: 3,
+		repeatsExp: 12
+	},
+	{
+		nameExp: 'Пресс на турнике',
+		podhods: 3,
+		repeatsExp: 12
 	},
 	{
 		nameExp: 'Велосипед',
 		podhods: 3,
-		repeatsExp: 60
+		repeatsExp: 12
 	},
 	{
-		nameExp: 'Велосипед',
+		nameExp: 'Скручивания',
 		podhods: 3,
-		repeatsExp: 60
+		repeatsExp: 12
 	}]
 }
 
-const cardio3 = {
-	name: 'Кардио "Сильное"',
-	descrip: 'Программа на развития силы и выносливости',
-	time: 42,
-	complexity: 'Кардио',
-	exemple: [{
-		nameExp: 'Бег на месте',
-		podhods: 3,
-		repeatsExp: 60
-	},
-	{
-		nameExp: 'Берпи',
-		podhods: 3,
-		repeatsExp: 12
-	},
-	{
-		nameExp: 'Шаги альпениста',
-		podhods: 3,
-		repeatsExp: 60
-	},
-	{
-		nameExp: 'Велосипед',
-		podhods: 3,
-		repeatsExp: 60
-	},
-	{
-		nameExp: 'Велосипед',
-		podhods: 3,
-		repeatsExp: 60
-	}
-		,
-	{
-		nameExp: 'Велосипед',
-		podhods: 3,
-		repeatsExp: 60
-	}
-		,
-	{
-		nameExp: 'Велосипед',
-		podhods: 3,
-		repeatsExp: 60
-	}
-		,
-	{
-		nameExp: 'Велосипед',
-		podhods: 3,
-		repeatsExp: 60
-	}]
-}
+
+
+
+
 
 dataOfCardioPrograms.push(cardio1)
 dataOfCardioPrograms.push(cardio2)
-dataOfCardioPrograms.push(cardio3)
+

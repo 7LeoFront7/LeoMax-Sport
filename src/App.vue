@@ -41,14 +41,7 @@ const indexStage = ref(0)
 //--
 
 // ToDoEveryDayList
-const toDoEveryDayList = ref({
-  1: ['Почистить зубы (Утро)', false],
-  2: ['Зарядка', false],
-  3: ['Вакуум 15х', false],
-  4: ['10 страниц', false],
-  5: ['Тренировка', false],
-  6: ['Почистить зубы (Вечер)', false],
-})
+const toDoEveryDayList = ref([])
 
 if (JSON.parse(localStorage.getItem('toDoEveryDayList')) != null) {
   toDoEveryDayList.value = JSON.parse(localStorage.getItem('toDoEveryDayList'))
@@ -192,26 +185,25 @@ function resYourStage(userStats) {
 
 
 }
-function saveTodoListFIRST() {
-  localStorage.setItem('toDoEveryDayList', JSON.stringify(toDoEveryDayList.value))
-  toDoEveryDayList.value = JSON.parse(localStorage.getItem('toDoEveryDayList'))
-}
 
-const toDoEveryDayList_data = ref('')
+
+
 
 function createCountToDay() {
-  toDoEveryDayList_data.value = JSON.parse(localStorage.getItem('toDoEveryDayList'))
-  toDoEveryDayList.value = toDoEveryDayList_data.value
+  toDoEveryDayList.value = JSON.parse(localStorage.getItem('toDoEveryDayList'))
   countFalseToDay.value = 0
-  for (let i = 1; i < 7; i++) {
-    if (!toDoEveryDayList.value[i][1]) {
-      countFalseToDay.value++
+  if (toDoEveryDayList.value != []) {
+    for (let i = 0; i < toDoEveryDayList.value.length; i++) {
+      if (!toDoEveryDayList.value[i].done) {
+        countFalseToDay.value = countFalseToDay.value + 1
+      }
     }
   }
+
 }
 
 onMounted(() => {
-  saveTodoListFIRST()
+
   getLSInfo()
   createCountToDay()
 })
@@ -225,7 +217,6 @@ provide('toDoEveryDayList', toDoEveryDayList)
 provide('mainForm', mainForm)
 provide('MaxPull', [MAX_PushUpsUser, MAX_PushDownsUser, MAX_Press, MAX_Prised])
 provide('ALlDaysTraning', ALlDaysTraning)
-provide('toDoEveryDayList_data', toDoEveryDayList_data)
 provide('saveStartRes', saveStartRes)
 provide('arrCalendarTraning', arrCalendarTraning)
 

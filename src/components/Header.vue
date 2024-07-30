@@ -12,7 +12,7 @@
             </svg>
             <div class="flex flex-col">
               <span class="text-gray-900 ">{{ fullName[0] }} {{ fullName[1] }}</span>
-              <span class="text-indigo-500 font-semibold">{{ userStageText }}</span>
+              <span class="text-indigo-500 font-semibold">Обычный</span>
             </div>
 
           </div>
