@@ -13,6 +13,12 @@ const isName = ref(false)
 
 // Add Traning
 const isFormTraning = ref(false)
+const arrCalendarTraning = ref([])
+if (JSON.parse(localStorage.getItem('arrCalendarTraning')) != null) {
+  arrCalendarTraning.value = JSON.parse(localStorage.getItem('arrCalendarTraning'))
+} else {
+  localStorage.setItem('arrCalendarTraning', JSON.stringify(arrCalendarTraning.value))
+}
 //--
 
 // Max results user
@@ -221,6 +227,7 @@ provide('MaxPull', [MAX_PushUpsUser, MAX_PushDownsUser, MAX_Press, MAX_Prised])
 provide('ALlDaysTraning', ALlDaysTraning)
 provide('toDoEveryDayList_data', toDoEveryDayList_data)
 provide('saveStartRes', saveStartRes)
+provide('arrCalendarTraning', arrCalendarTraning)
 
 
 
@@ -236,14 +243,14 @@ provide('saveStartRes', saveStartRes)
         <div>
           <label for="pushUps" class="block  text-sm font-medium leading-6 text-gray-900">Имя</label>
           <div class="mt-2">
-            <input v-model="firstName" type="text" autocomplete="firstname" required
+            <input v-model="firstName" type="text" required
               class="block bg-white w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset p-2 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
         <div>
           <label for="pushUps" class="block  text-sm font-medium leading-6 text-gray-900">Фамилия</label>
           <div class="mt-2">
-            <input v-model="lastName" type="text" autocomplete="name" required
+            <input v-model="lastName" type="text" required
               class="block bg-white w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset p-2 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>

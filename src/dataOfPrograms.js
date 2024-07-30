@@ -3,6 +3,8 @@ export const dataOfPowerPrograms = []
 const power1 = {
 	name: 'Понедельник (Грудь + Руки)',
 	id: 1,
+	done: false,
+	dayOfWeek: 1,
 	class: 'power',
 	descrip: 'Программа на развития силы верхней части тела',
 	time: 30,
@@ -39,7 +41,9 @@ const power1 = {
 }
 
 const power2 = {
+	done: false,
 	id: 2,
+	dayOfWeek: 3,
 	class: 'power',
 	name: 'Среда (Спина + Пресс)',
 	descrip: 'Программа на развития силы верхней и средней части тела',
@@ -82,6 +86,8 @@ const power2 = {
 }
 
 const power3 = {
+	dayOfWeek: 5,
+	done: false,
 	id: 3,
 	class: 'power',
 	name: 'Пятница (Ноги)',
