@@ -85,7 +85,7 @@
 
 
   </section>
-  <button class='btn btn-primary w-full text-xl'>Записать замер</button>
+  <button class='btn btn-primary w-full text-base'>Записать замер</button>
 
 </template>
 
