@@ -27,8 +27,18 @@ const countFalseToDay = inject('countFalseToDay')
 
       </a>
     </router-link>
+    <router-link to="/food" custom v-slot="{ href, route, navigate, isActive, isExactActive }">
+      <a :active="isActive" :href="href" @click="navigate">
+        <button class="flex  rounded-lg flex-col items-center justify-center"
+          :class="[isActive && 'router-link-active flex flex-col items-center justify-center', isExactActive && 'router-link-exact-active flex flex-col items-center justify-center']">
+          <i class='bx bx-food-menu bx-sm'></i>
+          <span class="btm-nav-label">Питание</span>
+        </button>
 
-    <router-link to="/today" custom v-slot="{ href, route, navigate, isActive, isExactActive }">
+      </a>
+    </router-link>
+
+    <!-- <router-link to="/today" custom v-slot="{ href, route, navigate, isActive, isExactActive }">
       <a :active="isActive" :href="href" @click="navigate">
         <button class="flex  rounded-lg flex-col items-center justify-center"
           :class="[isActive && 'router-link-active flex flex-col items-center justify-center', isExactActive && 'router-link-exact-active flex flex-col items-center justify-center']">
@@ -38,7 +48,7 @@ const countFalseToDay = inject('countFalseToDay')
         </button>
 
       </a>
-    </router-link>
+    </router-link> -->
     <router-link to="/formtraning" custom v-slot="{ href, route, navigate, isActive, isExactActive }">
       <a :active="isActive" :href="href" @click="navigate">
         <button class="flex rounded-lg flex-col items-center justify-center"

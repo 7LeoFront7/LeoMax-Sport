@@ -97,7 +97,7 @@ const attrs = ref([
 
 
   <div>
-    <VCalendar expanded :disabled-dates="disabledDates" :rows="2" :initial-page="{ month: monthCurrent, year: 2024 }"
+    <VCalendar expanded :disabled-dates="disabledDates" :rows="12" :initial-page="{ month: monthCurrent, year: 2024 }"
       :attributes="attrs" />
   </div>
 </template>

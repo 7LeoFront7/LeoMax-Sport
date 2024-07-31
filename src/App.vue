@@ -186,9 +186,6 @@ function resYourStage(userStats) {
 
 }
 
-
-
-
 function createCountToDay() {
   toDoEveryDayList.value = JSON.parse(localStorage.getItem('toDoEveryDayList'))
   countFalseToDay.value = 0
@@ -200,6 +197,12 @@ function createCountToDay() {
     }
   }
 
+}
+
+const dayToday = new Date().getDate()
+if (dayToday !== parseInt(localStorage.getItem('day'))) {
+  localStorage.setItem('isDone', false)
+  localStorage.setItem('day', dayToday)
 }
 
 onMounted(() => {

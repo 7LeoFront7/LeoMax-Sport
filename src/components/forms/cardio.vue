@@ -55,7 +55,7 @@ onMounted(() => {
 
   <div v-if="!isDone">
     <div v-for="programItem in dataOfCardioPrograms" class="card bg-base-100 w-full mb-6 shadow-xl">
-      <div v-if="programItem.dayOfWeek == dateOfWeek ? isTraning = true : null" class="card-body p-4">
+      <div class="card-body p-4">
         <h2 class="card-title text-2xl text-indigo-500 font-bold">{{ programItem.name }}</h2>
         <p class="">{{ programItem.descrip }}</p>
         <p class="text-xl"> Время: <span class="text-indigo-500">{{ programItem.time }} мин.</span></p>
@@ -68,10 +68,6 @@ onMounted(() => {
       </div>
     </div>
 
-    <div v-if="!isTraning">
-
-      На сегодня тренировок не запланировано
-    </div>
   </div>
   <div v-else>
     Вы сегодня уже тренироваолсиь

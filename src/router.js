@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Progress from './components/Progress.vue'
 import calendar from './components/calendar.vue'
+import food from './components/food.vue'
 import formTraning from './components/forms/formTraning.vue'
 import howwork from './components/howwork.vue'
 import main from './components/main.vue'
@@ -16,6 +17,7 @@ export default createRouter({
     { path: '/howwork', component: howwork },
     { path: '/today', component: today },
     { path: '/calendar', component: calendar },
-    { path: '/formtraning', component: formTraning }
+    { path: '/formtraning', component: formTraning },
+    { path: '/food', component: food },
   ]
 })

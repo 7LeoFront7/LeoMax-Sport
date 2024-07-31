@@ -45,7 +45,7 @@ const cardio2 = {
 	id: 2,
 	dayOfWeek: 4,
 	class: 'cardio',
-	name: 'Среда (Спина + Пресс)',
+	name: 'Каридо "Средний"',
 	descrip: 'Программа на развития силы верхней и средней части тела',
 	time: 32,
 	exemple: [{
